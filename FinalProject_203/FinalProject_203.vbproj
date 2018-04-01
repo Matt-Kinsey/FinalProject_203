@@ -78,6 +78,12 @@
     <Compile Include="EquipmentListForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EquipmentManagementForm.Designer.vb">
+      <DependentUpon>EquipmentManagementForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentManagementForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SearchForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
   <ItemGroup>
     <EmbeddedResource Include="EquipmentListForm.resx">
       <DependentUpon>EquipmentListForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EquipmentManagementForm.resx">
+      <DependentUpon>EquipmentManagementForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchForm.resx">
       <DependentUpon>SearchForm.vb</DependentUpon>
