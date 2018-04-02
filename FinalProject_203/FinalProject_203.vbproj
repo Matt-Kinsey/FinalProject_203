@@ -84,6 +84,12 @@
     <Compile Include="EquipmentManagementForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ReservationManagementForm.Designer.vb">
+      <DependentUpon>ReservationManagementForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationManagementForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ReservationsListForm.Designer.vb">
       <DependentUpon>ReservationsListForm.vb</DependentUpon>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EquipmentManagementForm.resx">
       <DependentUpon>EquipmentManagementForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationManagementForm.resx">
+      <DependentUpon>ReservationManagementForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReservationsListForm.resx">
       <DependentUpon>ReservationsListForm.vb</DependentUpon>
