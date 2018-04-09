@@ -22,11 +22,14 @@ Partial Class EquipmentListForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lstEquipment = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lstEquipment
@@ -51,7 +54,7 @@ Partial Class EquipmentListForm
         Me.btnAdd.Location = New System.Drawing.Point(375, 84)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(75, 23)
-        Me.btnAdd.TabIndex = 2
+        Me.btnAdd.TabIndex = 1
         Me.btnAdd.Text = "Add"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
@@ -60,7 +63,7 @@ Partial Class EquipmentListForm
         Me.btnEdit.Location = New System.Drawing.Point(375, 150)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
-        Me.btnEdit.TabIndex = 3
+        Me.btnEdit.TabIndex = 2
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
@@ -69,9 +72,13 @@ Partial Class EquipmentListForm
         Me.btnDelete.Location = New System.Drawing.Point(375, 222)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(75, 23)
-        Me.btnDelete.TabIndex = 4
+        Me.btnDelete.TabIndex = 3
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = True
+        '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
         '
         'EquipmentListForm
         '
@@ -85,6 +92,7 @@ Partial Class EquipmentListForm
         Me.Controls.Add(Me.lstEquipment)
         Me.Name = "EquipmentListForm"
         Me.Text = "Equipment List"
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -95,4 +103,5 @@ Partial Class EquipmentListForm
     Friend WithEvents btnAdd As Button
     Friend WithEvents btnEdit As Button
     Friend WithEvents btnDelete As Button
+    Friend WithEvents errProvider As ErrorProvider
 End Class

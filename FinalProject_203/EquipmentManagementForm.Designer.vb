@@ -43,7 +43,7 @@ Partial Class EquipmentManagementForm
         Me.txtEquipmentName.Location = New System.Drawing.Point(79, 38)
         Me.txtEquipmentName.Name = "txtEquipmentName"
         Me.txtEquipmentName.Size = New System.Drawing.Size(182, 20)
-        Me.txtEquipmentName.TabIndex = 1
+        Me.txtEquipmentName.TabIndex = 0
         '
         'btnSave
         '
@@ -69,7 +69,7 @@ Partial Class EquipmentManagementForm
         Me.txtDescription.Multiline = True
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.Size = New System.Drawing.Size(182, 64)
-        Me.txtDescription.TabIndex = 4
+        Me.txtDescription.TabIndex = 1
         '
         'EquipmentManagementForm
         '
