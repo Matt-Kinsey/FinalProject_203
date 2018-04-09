@@ -90,6 +90,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBUtilities.vb" />
     <Compile Include="EquipmentListForm.Designer.vb">
       <DependentUpon>EquipmentListForm.vb</DependentUpon>
     </Compile>
