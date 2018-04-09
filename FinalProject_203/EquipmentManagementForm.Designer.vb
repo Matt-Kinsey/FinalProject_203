@@ -25,6 +25,8 @@ Partial Class EquipmentManagementForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtEquipmentName = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtDescription = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -38,25 +40,44 @@ Partial Class EquipmentManagementForm
         '
         'txtEquipmentName
         '
-        Me.txtEquipmentName.Location = New System.Drawing.Point(69, 38)
+        Me.txtEquipmentName.Location = New System.Drawing.Point(79, 38)
         Me.txtEquipmentName.Name = "txtEquipmentName"
-        Me.txtEquipmentName.Size = New System.Drawing.Size(192, 20)
+        Me.txtEquipmentName.Size = New System.Drawing.Size(182, 20)
         Me.txtEquipmentName.TabIndex = 1
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(67, 84)
+        Me.btnSave.Location = New System.Drawing.Point(79, 159)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(123, 23)
         Me.btnSave.TabIndex = 2
         Me.btnSave.Text = "Save Changes"
         Me.btnSave.UseVisualStyleBackColor = True
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 73)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(63, 13)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Description:"
+        '
+        'txtDescription
+        '
+        Me.txtDescription.Location = New System.Drawing.Point(79, 73)
+        Me.txtDescription.Multiline = True
+        Me.txtDescription.Name = "txtDescription"
+        Me.txtDescription.Size = New System.Drawing.Size(182, 64)
+        Me.txtDescription.TabIndex = 4
+        '
         'EquipmentManagementForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(273, 144)
+        Me.ClientSize = New System.Drawing.Size(273, 194)
+        Me.Controls.Add(Me.txtDescription)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.txtEquipmentName)
         Me.Controls.Add(Me.Label1)
@@ -70,4 +91,6 @@ Partial Class EquipmentManagementForm
     Friend WithEvents Label1 As Label
     Friend WithEvents txtEquipmentName As TextBox
     Friend WithEvents btnSave As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtDescription As TextBox
 End Class
