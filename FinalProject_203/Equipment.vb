@@ -5,7 +5,7 @@ Public Class Equipment
 
     Public Property Name As String
     Public Property Description As String
-    Public Property ID As Integer
+    Public ReadOnly Property ID As Integer
 
     Public Sub New(ByVal pName As String, ByVal pDescription As String)
         Name = pName
