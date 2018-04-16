@@ -100,6 +100,110 @@ Public Class DBUtilities
         Return count > 0
     End Function
 
+    Public Shared Function GetAllUsers() As List(Of User)
+        con.Open()
 
+        Dim cmd As New SQLiteCommand(con)
+        Dim list As New List(Of User)
+
+        cmd.CommandText = "SELECT * FROM User"
+
+        Dim rdr As SQLiteDataReader = cmd.ExecuteReader()
+
+        While (rdr.Read())
+            list.Add(New User(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetInt32(3)))
+        End While
+
+        con.Close()
+
+        Return list
+    End Function
+
+    Public Shared Function GetReservationsOfUser(ByRef user As User) As List(Of Reservation)
+        con.Open()
+
+        Dim cmd As New SQLiteCommand(con)
+        Dim list As New List(Of Reservation)
+
+        cmd.CommandText = "SELECT * FROM Reservation WHERE userid = @UserID"
+
+        cmd.Parameters.AddWithValue("@UserID", user.ID)
+
+        Dim rdr As SQLiteDataReader = cmd.ExecuteReader()
+
+        While (rdr.Read())
+            list.Add(New Reservation(rdr.GetInt32(0), rdr.GetDateTime(1), rdr.GetDateTime(2), rdr.GetInt32(3), rdr.GetInt32(4), rdr.GetString(5)))
+        End While
+
+        con.Close()
+
+        Return list
+    End Function
+
+    Public Shared Function CreateReservation(ByRef res As Reservation) As Boolean
+        con.Open()
+
+        Dim sql As String = "INSERT INTO Reservation(date_start, date_end, userid, equipmentid, notes) VALUES(@DateStart, @DateEnd, @UserID, @EquipmentID, @Notes)"
+
+        Dim cmd As New SQLiteCommand(sql, con)
+
+        Dim count As Integer
+
+        cmd.Parameters.AddWithValue("@DateStart", res.DateStart)
+        cmd.Parameters.AddWithValue("@DateEnd", res.DateEnd)
+        cmd.Parameters.AddWithValue("@UserID", res.UserID)
+        cmd.Parameters.AddWithValue("@EquipmentID", res.EquipmentID)
+        cmd.Parameters.AddWithValue("@Notes", res.Notes)
+
+        count = cmd.ExecuteNonQuery()
+
+        con.Close()
+
+        Return count > 0
+    End Function
+
+    Public Shared Function GetAvailableEquipment(ByVal date_start As Date, ByVal date_end As Date) As List(Of Equipment)
+
+    End Function
+
+    Public Shared Function GetUserByID(ByVal userid As Integer) As User
+        con.Open()
+
+        Dim cmd As New SQLiteCommand(con)
+        Dim u As User
+
+        cmd.CommandText = "SELECT * FROM User WHERE id = @UserID"
+        cmd.Parameters.AddWithValue("@UserID", userid)
+
+        Dim rdr As SQLiteDataReader = cmd.ExecuteReader()
+
+        While (rdr.Read())
+            u = New User(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetInt32(3))
+        End While
+
+        con.Close()
+
+        Return u
+    End Function
+
+    Public Shared Function GetEquipmentByID(ByVal equipid As Integer) As Equipment
+        con.Open()
+
+        Dim cmd As New SQLiteCommand(con)
+        Dim equip As Equipment
+
+        cmd.CommandText = "SELECT * FROM Equipment WHERE id = @EquipID"
+        cmd.Parameters.AddWithValue("@EquipID", equipid)
+
+        Dim rdr As SQLiteDataReader = cmd.ExecuteReader()
+
+        While (rdr.Read())
+            equip = New Equipment(rdr.GetString(1), rdr.GetString(2), rdr.GetInt32(0))
+        End While
+
+        con.Close()
+
+        Return equip
+    End Function
 
 End Class
