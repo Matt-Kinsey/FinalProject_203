@@ -11,8 +11,8 @@ Public Class Reservation
 
     Public Sub New(ByVal id As Integer, ByVal date_start As Date, ByVal date_end As Date, ByVal user_id As Integer, ByVal equipment_id As Integer, ByVal notes As String)
         Me.ID = id
-        DateStart = date_start
-        DateEnd = date_end
+        DateStart = Date.Parse(date_start.ToShortDateString)
+        DateEnd = Date.Parse(date_end.ToShortDateString)
         UserID = user_id
         EquipmentID = equipment_id
         Me.Notes = notes
@@ -21,8 +21,8 @@ Public Class Reservation
     Public Sub New(ByRef res As Reservation)
         'Copy constructor
         Me.ID = res.ID
-        DateStart = res.DateStart
-        DateEnd = res.DateEnd
+        DateStart = Date.Parse(res.DateStart.ToShortDateString)
+        DateEnd = Date.Parse(res.DateEnd.ToShortDateString)
         UserID = res.UserID
         EquipmentID = res.EquipmentID
         Me.Notes = res.Notes
