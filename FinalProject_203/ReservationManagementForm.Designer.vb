@@ -31,6 +31,8 @@ Partial Class ReservationManagementForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtEquipment = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'dtpBegin
@@ -103,19 +105,38 @@ Partial Class ReservationManagementForm
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(89, 198)
+        Me.btnSave.Location = New System.Drawing.Point(85, 274)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(101, 23)
         Me.btnSave.TabIndex = 12
         Me.btnSave.Text = "Save Changes"
         Me.btnSave.UseVisualStyleBackColor = True
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(40, 184)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(38, 13)
+        Me.Label5.TabIndex = 13
+        Me.Label5.Text = "Notes:"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(132, 181)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(121, 76)
+        Me.TextBox1.TabIndex = 14
+        '
         'ReservationManagementForm
         '
         Me.AcceptButton = Me.btnSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(274, 253)
+        Me.ClientSize = New System.Drawing.Size(274, 310)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.txtEquipment)
         Me.Controls.Add(Me.Label4)
@@ -141,4 +162,6 @@ Partial Class ReservationManagementForm
     Friend WithEvents Label4 As Label
     Friend WithEvents txtEquipment As TextBox
     Friend WithEvents btnSave As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents TextBox1 As TextBox
 End Class
