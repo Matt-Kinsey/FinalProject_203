@@ -24,7 +24,7 @@ Partial Class ReservationsListForm
     Private Sub InitializeComponent()
         Me.cboUsername = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.lstReservations = New System.Windows.Forms.ListBox()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.cboFilter = New System.Windows.Forms.ComboBox()
@@ -48,13 +48,13 @@ Partial Class ReservationsListForm
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Username:"
         '
-        'ListBox1
+        'lstReservations
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(12, 63)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(281, 290)
-        Me.ListBox1.TabIndex = 2
+        Me.lstReservations.FormattingEnabled = True
+        Me.lstReservations.Location = New System.Drawing.Point(12, 63)
+        Me.lstReservations.Name = "lstReservations"
+        Me.lstReservations.Size = New System.Drawing.Size(281, 290)
+        Me.lstReservations.TabIndex = 2
         '
         'btnEdit
         '
@@ -100,7 +100,7 @@ Partial Class ReservationsListForm
         Me.Controls.Add(Me.cboFilter)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnEdit)
-        Me.Controls.Add(Me.ListBox1)
+        Me.Controls.Add(Me.lstReservations)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cboUsername)
         Me.Name = "ReservationsListForm"
@@ -112,7 +112,7 @@ Partial Class ReservationsListForm
 
     Friend WithEvents cboUsername As ComboBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents lstReservations As ListBox
     Friend WithEvents btnEdit As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents cboFilter As ComboBox

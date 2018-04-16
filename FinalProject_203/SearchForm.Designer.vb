@@ -24,8 +24,9 @@ Partial Class SearchForm
     Private Sub InitializeComponent()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.ListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
         Me.cboUsers = New System.Windows.Forms.ToolStripComboBox()
@@ -36,7 +37,7 @@ Partial Class SearchForm
         Me.lstEquipment = New System.Windows.Forms.ListBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnReserve = New System.Windows.Forms.Button()
-        Me.ListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -51,9 +52,15 @@ Partial Class SearchForm
         '
         'ToolStripLabel1
         '
+        Me.ToolStripLabel1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListToolStripMenuItem1})
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
         Me.ToolStripLabel1.Size = New System.Drawing.Size(86, 22)
         Me.ToolStripLabel1.Text = "&Reservations"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'ToolStripLabel2
         '
@@ -62,10 +69,11 @@ Partial Class SearchForm
         Me.ToolStripLabel2.Size = New System.Drawing.Size(78, 22)
         Me.ToolStripLabel2.Text = "&Equipment"
         '
-        'ToolStripSeparator1
+        'ListToolStripMenuItem
         '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        Me.ListToolStripMenuItem.Name = "ListToolStripMenuItem"
+        Me.ListToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ListToolStripMenuItem.Text = "List"
         '
         'ToolStripSeparator2
         '
@@ -143,11 +151,11 @@ Partial Class SearchForm
         Me.btnReserve.Text = "Reserve"
         Me.btnReserve.UseVisualStyleBackColor = True
         '
-        'ListToolStripMenuItem
+        'ListToolStripMenuItem1
         '
-        Me.ListToolStripMenuItem.Name = "ListToolStripMenuItem"
-        Me.ListToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ListToolStripMenuItem.Text = "List"
+        Me.ListToolStripMenuItem1.Name = "ListToolStripMenuItem1"
+        Me.ListToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ListToolStripMenuItem1.Text = "List"
         '
         'SearchForm
         '
@@ -186,4 +194,5 @@ Partial Class SearchForm
     Friend WithEvents ToolStripLabel1 As ToolStripDropDownButton
     Friend WithEvents ToolStripLabel2 As ToolStripDropDownButton
     Friend WithEvents ListToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ListToolStripMenuItem1 As ToolStripMenuItem
 End Class
