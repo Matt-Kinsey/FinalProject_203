@@ -24,6 +24,7 @@ Partial Class SearchForm
     Private Sub InitializeComponent()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.ListToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -37,7 +38,6 @@ Partial Class SearchForm
         Me.lstEquipment = New System.Windows.Forms.ListBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnReserve = New System.Windows.Forms.Button()
-        Me.ListToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -57,6 +57,12 @@ Partial Class SearchForm
         Me.ToolStripLabel1.Size = New System.Drawing.Size(86, 22)
         Me.ToolStripLabel1.Text = "&Reservations"
         '
+        'ListToolStripMenuItem1
+        '
+        Me.ListToolStripMenuItem1.Name = "ListToolStripMenuItem1"
+        Me.ListToolStripMenuItem1.Size = New System.Drawing.Size(92, 22)
+        Me.ListToolStripMenuItem1.Text = "List"
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
@@ -72,7 +78,7 @@ Partial Class SearchForm
         'ListToolStripMenuItem
         '
         Me.ListToolStripMenuItem.Name = "ListToolStripMenuItem"
-        Me.ListToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ListToolStripMenuItem.Size = New System.Drawing.Size(92, 22)
         Me.ListToolStripMenuItem.Text = "List"
         '
         'ToolStripSeparator2
@@ -150,12 +156,6 @@ Partial Class SearchForm
         Me.btnReserve.TabIndex = 7
         Me.btnReserve.Text = "Reserve"
         Me.btnReserve.UseVisualStyleBackColor = True
-        '
-        'ListToolStripMenuItem1
-        '
-        Me.ListToolStripMenuItem1.Name = "ListToolStripMenuItem1"
-        Me.ListToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.ListToolStripMenuItem1.Text = "List"
         '
         'SearchForm
         '
