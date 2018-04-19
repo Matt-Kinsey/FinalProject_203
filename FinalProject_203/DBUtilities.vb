@@ -312,4 +312,68 @@ Public Class DBUtilities
         Return count > 0
     End Function
 
+    Public Shared Function EditReservation(ByRef res As Reservation) As Boolean
+        If res.DateStart.CompareTo(res.DateEnd) > 0 Then 'If start > end
+            Return False
+        End If
+
+        'We need to set the date far back so the available equipment check doesn't get tripped by this reservation
+        If Not ResetReservationDate(res) Then
+            Return False
+        End If
+
+        Dim equip As List(Of Equipment) = GetAvailableEquipment(res.DateStart, res.DateEnd)
+        Dim isAvailable = False
+        For Each e As Equipment In equip 'Make sure equipment is available
+            If e.ID = res.EquipmentID Then
+                isAvailable = True
+                Exit For
+            End If
+        Next
+        If Not isAvailable Then
+            Return False
+        End If
+
+        con.Open()
+
+        Dim sql As String = "UPDATE Reservation SET date_start = @DateStart, date_end = @DateEnd, userid = @UserID, notes = @Notes WHERE ID = @ID"
+
+        Dim cmd As New SQLiteCommand(sql, con)
+
+        Dim count As Integer
+
+        cmd.Parameters.AddWithValue("@DateStart", res.DateStart)
+        cmd.Parameters.AddWithValue("@DateEnd", res.DateEnd)
+        cmd.Parameters.AddWithValue("@UserID", res.UserID)
+        cmd.Parameters.AddWithValue("@Notes", res.Notes)
+        cmd.Parameters.AddWithValue("@ID", res.ID)
+
+        count = cmd.ExecuteNonQuery()
+
+        con.Close()
+
+        Return count > 0
+
+    End Function
+
+    Private Shared Function ResetReservationDate(ByRef res As Reservation) As Boolean
+        con.Open()
+
+        Dim sql As String = "UPDATE Reservation SET date_start = @DateStart, date_end = @DateEnd WHERE ID = @ID"
+
+        Dim cmd As New SQLiteCommand(sql, con)
+
+        Dim count As Integer
+
+        cmd.Parameters.AddWithValue("@DateStart", New Date(1970, 1, 1))
+        cmd.Parameters.AddWithValue("@DateEnd", New Date(1970, 1, 2))
+        cmd.Parameters.AddWithValue("@ID", res.ID)
+
+        count = cmd.ExecuteNonQuery()
+
+        con.Close()
+
+        Return count > 0
+    End Function
+
 End Class
