@@ -11,6 +11,10 @@ Public Class ReservationsListForm
         cboUsername.SelectedIndex = 0
     End Sub
 
+    Private Sub ReservationsListForm_Closing(sender As Object, e As EventArgs) Handles MyBase.Closing
+        SearchForm.PopulateEquipment()
+    End Sub
+
     Private Sub cboUsername_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboUsername.SelectedIndexChanged
         RefreshItems()
     End Sub

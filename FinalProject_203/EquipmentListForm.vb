@@ -17,6 +17,10 @@ Public Class EquipmentListForm
         RefreshItems()
     End Sub
 
+    Private Sub EquipmentListForm_Closing(sender As Object, e As EventArgs) Handles MyBase.Closing
+        SearchForm.PopulateEquipment()
+    End Sub
+
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
         If lstEquipment.SelectedIndex = -1 Then
             errProvider.SetError(lstEquipment, "Please select an item to edit")

@@ -40,9 +40,10 @@ Public Class SearchForm
         Dim res As New Reservation(0, dtpBegin.Value, dtpEnd.Value, user.ID, equip.ID, "")
 
         DBUtilities.CreateReservation(res)
+        PopulateEquipment()
     End Sub
 
-    Private Sub PopulateEquipment()
+    Public Sub PopulateEquipment()
         lstEquipment.Items.Clear()
         Dim equip As List(Of Equipment) = DBUtilities.GetAvailableEquipment(dtpBegin.Value, dtpEnd.Value)
         If (equip Is Nothing) Then
