@@ -32,7 +32,7 @@ Partial Class ReservationManagementForm
         Me.txtEquipment = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtNotes = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'dtpBegin
@@ -121,13 +121,13 @@ Partial Class ReservationManagementForm
         Me.Label5.TabIndex = 13
         Me.Label5.Text = "Notes:"
         '
-        'TextBox1
+        'txtNotes
         '
-        Me.TextBox1.Location = New System.Drawing.Point(132, 181)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(121, 76)
-        Me.TextBox1.TabIndex = 14
+        Me.txtNotes.Location = New System.Drawing.Point(132, 181)
+        Me.txtNotes.Multiline = True
+        Me.txtNotes.Name = "txtNotes"
+        Me.txtNotes.Size = New System.Drawing.Size(121, 76)
+        Me.txtNotes.TabIndex = 14
         '
         'ReservationManagementForm
         '
@@ -135,7 +135,7 @@ Partial Class ReservationManagementForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(274, 310)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtNotes)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.txtEquipment)
@@ -163,5 +163,5 @@ Partial Class ReservationManagementForm
     Friend WithEvents txtEquipment As TextBox
     Friend WithEvents btnSave As Button
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtNotes As TextBox
 End Class

@@ -22,6 +22,7 @@ Partial Class ReservationsListForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.cboUsername = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lstReservations = New System.Windows.Forms.ListBox()
@@ -29,6 +30,8 @@ Partial Class ReservationsListForm
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.cboFilter = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cboUsername
@@ -91,6 +94,10 @@ Partial Class ReservationsListForm
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Filter:"
         '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
+        '
         'ReservationsListForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -105,6 +112,7 @@ Partial Class ReservationsListForm
         Me.Controls.Add(Me.cboUsername)
         Me.Name = "ReservationsListForm"
         Me.Text = "Reservations List"
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -117,4 +125,5 @@ Partial Class ReservationsListForm
     Friend WithEvents btnDelete As Button
     Friend WithEvents cboFilter As ComboBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents errProvider As ErrorProvider
 End Class
