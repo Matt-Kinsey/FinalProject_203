@@ -289,4 +289,27 @@ Public Class DBUtilities
         Return test_date >= start_date And test_date <= end_date
     End Function
 
+    ''' <summary>
+    ''' Deletes a provided reservation from the database
+    ''' </summary>
+    ''' <param name="res">The reservation to delete</param>
+    ''' <returns>True on success, false on failure</returns>
+    Public Shared Function DeleteReservation(ByRef res As Reservation) As Boolean
+        con.Open()
+
+        Dim sql As String = "DELETE FROM Reservation WHERE ID = @ID"
+
+        Dim cmd As New SQLiteCommand(sql, con)
+
+        Dim count As Integer
+
+        cmd.Parameters.AddWithValue("@ID", res.ID)
+
+        count = cmd.ExecuteNonQuery()
+
+        con.Close()
+
+        Return count > 0
+    End Function
+
 End Class

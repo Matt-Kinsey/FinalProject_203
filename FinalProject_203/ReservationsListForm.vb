@@ -36,4 +36,17 @@ Public Class ReservationsListForm
             lstReservations.Items.Add(res)
         Next
     End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        If lstReservations.SelectedIndex = -1 Then
+            errProvider.SetError(lstReservations, "Please select an item to edit")
+            Return
+        End If
+
+        Dim res As Reservation = CType(lstReservations.SelectedItem, Reservation)
+
+        DBUtilities.DeleteReservation(res)
+
+        RefreshItems()
+    End Sub
 End Class
