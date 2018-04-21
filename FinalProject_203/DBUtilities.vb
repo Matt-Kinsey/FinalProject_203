@@ -161,6 +161,27 @@ Public Class DBUtilities
         Return list
     End Function
 
+    Public Shared Function GetReservationByID(ByVal id As Integer) As Reservation
+        con.Open()
+
+        Dim cmd As New SQLiteCommand(con)
+        Dim res As Reservation
+
+        cmd.CommandText = "SELECT * FROM Reservation WHERE Id = @ID"
+
+        cmd.Parameters.AddWithValue("@ID", id)
+
+        Dim rdr As SQLiteDataReader = cmd.ExecuteReader()
+
+        While (rdr.Read())
+            res = New Reservation(rdr.GetInt32(0), rdr.GetDateTime(1), rdr.GetDateTime(2), rdr.GetInt32(3), rdr.GetInt32(4), rdr.GetString(5))
+        End While
+
+        con.Close()
+
+        Return res
+    End Function
+
     Public Shared Function GetAllReservations() As List(Of Reservation)
         con.Open()
 
@@ -317,6 +338,8 @@ Public Class DBUtilities
             Return False
         End If
 
+        Dim oldRes As Reservation = GetReservationByID(res.ID)
+
         'We need to set the date far back so the available equipment check doesn't get tripped by this reservation
         If Not ResetReservationDate(res) Then
             Return False
@@ -331,6 +354,7 @@ Public Class DBUtilities
             End If
         Next
         If Not isAvailable Then
+            SetReservationDate(oldRes) 'Make sure we fix the date before we error out
             Return False
         End If
 
@@ -356,6 +380,11 @@ Public Class DBUtilities
 
     End Function
 
+    ''' <summary>
+    ''' Sets reservation date in database to epoch
+    ''' </summary>
+    ''' <param name="res">Reservation to change</param>
+    ''' <returns>True on success, false on failure</returns>
     Private Shared Function ResetReservationDate(ByRef res As Reservation) As Boolean
         con.Open()
 
@@ -367,6 +396,31 @@ Public Class DBUtilities
 
         cmd.Parameters.AddWithValue("@DateStart", New Date(1970, 1, 1))
         cmd.Parameters.AddWithValue("@DateEnd", New Date(1970, 1, 2))
+        cmd.Parameters.AddWithValue("@ID", res.ID)
+
+        count = cmd.ExecuteNonQuery()
+
+        con.Close()
+
+        Return count > 0
+    End Function
+
+    ''' <summary>
+    ''' Sets reservation date in database to the one in the object. To be used after ResetReservationDate()
+    ''' </summary>
+    ''' <param name="res">Reservation to change</param>
+    ''' <returns>True on success, false on failure</returns>
+    Private Shared Function SetReservationDate(ByRef res As Reservation) As Boolean
+        con.Open()
+
+        Dim sql As String = "UPDATE Reservation SET date_start = @DateStart, date_end = @DateEnd WHERE ID = @ID"
+
+        Dim cmd As New SQLiteCommand(sql, con)
+
+        Dim count As Integer
+
+        cmd.Parameters.AddWithValue("@DateStart", res.DateStart)
+        cmd.Parameters.AddWithValue("@DateEnd", res.DateEnd)
         cmd.Parameters.AddWithValue("@ID", res.ID)
 
         count = cmd.ExecuteNonQuery()
