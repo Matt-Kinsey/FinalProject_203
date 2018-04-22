@@ -22,6 +22,7 @@ Partial Class ReservationManagementForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.dtpBegin = New System.Windows.Forms.DateTimePicker()
         Me.dtpEnd = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -33,6 +34,8 @@ Partial Class ReservationManagementForm
         Me.btnSave = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtNotes = New System.Windows.Forms.TextBox()
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dtpBegin
@@ -129,6 +132,10 @@ Partial Class ReservationManagementForm
         Me.txtNotes.Size = New System.Drawing.Size(121, 76)
         Me.txtNotes.TabIndex = 14
         '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
+        '
         'ReservationManagementForm
         '
         Me.AcceptButton = Me.btnSave
@@ -148,6 +155,7 @@ Partial Class ReservationManagementForm
         Me.Controls.Add(Me.dtpBegin)
         Me.Name = "ReservationManagementForm"
         Me.Text = "Reservation Management"
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -164,4 +172,5 @@ Partial Class ReservationManagementForm
     Friend WithEvents btnSave As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents txtNotes As TextBox
+    Friend WithEvents errProvider As ErrorProvider
 End Class

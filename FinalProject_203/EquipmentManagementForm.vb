@@ -6,6 +6,10 @@ Public Class EquipmentManagementForm
     Private equip As Equipment
     Private adding As Boolean = False
 
+    ''' <summary>
+    ''' Constructor for form
+    ''' </summary>
+    ''' <param name="pEquip">The equipment object to edit, OR Nothing for adding equipment</param>
     Public Sub New(ByRef pEquip As Equipment)
         InitializeComponent()
 

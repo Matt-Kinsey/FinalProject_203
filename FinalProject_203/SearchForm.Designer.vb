@@ -22,6 +22,7 @@ Partial Class SearchForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ListToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -38,7 +39,9 @@ Partial Class SearchForm
         Me.lstEquipment = New System.Windows.Forms.ListBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnReserve = New System.Windows.Forms.Button()
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ToolStrip1.SuspendLayout()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -157,6 +160,10 @@ Partial Class SearchForm
         Me.btnReserve.Text = "Reserve"
         Me.btnReserve.UseVisualStyleBackColor = True
         '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
+        '
         'SearchForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -174,6 +181,7 @@ Partial Class SearchForm
         Me.Text = "Search"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -195,4 +203,5 @@ Partial Class SearchForm
     Friend WithEvents ToolStripLabel2 As ToolStripDropDownButton
     Friend WithEvents ListToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents errProvider As ErrorProvider
 End Class
